@@ -5,13 +5,15 @@ function obtenerMensaje() {
   return "¡Hola Mundo desde Node.js en la nube!";
 }
 
-fuction obtenerHora() {
+// Corregido: function bien escrito
+function obtenerHora() {
   const ahora = new Date();
   return ahora.toLocaleString("es-PE", {timeZone: "America/Lima"});
 }
 
 app.get("/", (req, res) => {
-  res.send(`${obtenerMensaje()}<br>Hora actual: ${obtener()}`);
+  // Corregido: Llamada a obtenerHora()
+  res.send(`${obtenerMensaje()}<br>Hora actual: ${obtenerHora()}`);
 });
 
 app.get("/health", (req, res) => res.status(200).send("ok"));
